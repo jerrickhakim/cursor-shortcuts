@@ -1,0 +1,49 @@
+{
+  "name": "cursor-shortcuts",
+  "version": "1.0.0",
+  "description": "CLI tool to open files from shortcuts.json in Cursor editor with dynamic commands",
+  "main": "index.js",
+  "bin": {
+    "s": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js list",
+    "prepublishOnly": "npm test",
+    "link": "npm link",
+    "unlink": "npm unlink"
+  },
+  "dependencies": {
+    "commander": "^11.1.0"
+  },
+  "keywords": [
+    "cli",
+    "cursor",
+    "shortcuts",
+    "productivity",
+    "file-opener",
+    "editor",
+    "cursor-editor",
+    "file-shortcuts",
+    "development-tools",
+    "workflow"
+  ],
+  "author": "Cursor File Shortcuts Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerrickhakim/cursor-shortcuts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jerrickhakim/cursor-shortcuts/issues"
+  },
+  "homepage": "https://github.com/jerrickhakim/cursor-shortcuts#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "example-shortcuts.json"
+  ]
+}

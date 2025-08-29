@@ -1,0 +1,47 @@
+# Development files
+.git/
+.gitignore
+.npmignore
+README.md
+example-shortcuts.json
+install.sh
+publish.sh
+s
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Development scripts
+install.sh
+publish.sh
+
+# Documentation (keep README.md for npm)
+docs/
+*.md
+!README.md
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Example files (keep example-shortcuts.json for npm)
+examples/
+!example-shortcuts.json

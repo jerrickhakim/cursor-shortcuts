@@ -1,0 +1,22 @@
+{
+  "playground:save": {
+    "description": "Open playground save files in Cursor",
+    "files": ["next/app/api/playground/route.ts", "next/app/(scrollable-none)/playground/components/Layout.tsx"]
+  },
+  "auth:files": {
+    "description": "Open authentication related files",
+    "files": ["next/app/auth/sign-in.tsx", "next/app/auth/sign-up.tsx"]
+  },
+  "components:ui": {
+    "description": "Open UI components",
+    "files": ["next/components/ui/button.tsx", "next/components/ui/input.tsx"]
+  },
+  "api:routes": {
+    "description": "Open API route files",
+    "files": ["next/app/api/users/route.ts", "next/app/api/auth/route.ts"]
+  },
+  "styles:css": {
+    "description": "Open styling files",
+    "files": ["next/app/globals.css", "next/tailwind.config.js"]
+  }
+}
