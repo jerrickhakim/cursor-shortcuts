@@ -109,6 +109,3 @@ See `example-shortcuts.json` for more examples of how to structure your shortcut
 ## License
 
 MIT
-https://registry.npmjs.org/ with tag latest and default access
-
-- cursor-shortcuts@1.0.0
