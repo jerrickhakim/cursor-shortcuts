@@ -79,6 +79,16 @@ function loadShortcuts() {
   }
 }
 
+// Function to get shortcut by index
+function getShortcutByIndex(shortcuts, index) {
+  const shortcutKeys = Object.keys(shortcuts);
+  if (index >= 0 && index < shortcutKeys.length) {
+    const key = shortcutKeys[index];
+    return { key, config: shortcuts[key] };
+  }
+  return null;
+}
+
 // Main CLI logic
 program.name("s").description("CLI tool to open files from shortcuts.json in Cursor").version("1.0.0");
 
@@ -93,17 +103,17 @@ program
     console.log("Available shortcuts:");
     console.log("");
 
-    Object.entries(shortcuts).forEach(([command, config]) => {
-      console.log(`  ${command}`);
+    Object.entries(shortcuts).forEach(([command, config], index) => {
+      console.log(`  ${index}. ${command}`);
       console.log(`    Description: ${config.description}`);
       console.log(`    Files: ${config.files.length} file(s)`);
 
       // Show file paths
-      config.files.forEach((file, index) => {
+      config.files.forEach((file, fileIndex) => {
         const filePath = path.resolve(path.dirname(findShortcutsFile()), file);
         const exists = fs.existsSync(filePath);
         const status = exists ? "✅" : "❌";
-        console.log(`      ${index + 1}. ${status} ${file}`);
+        console.log(`      ${fileIndex + 1}. ${status} ${file}`);
       });
 
       console.log("");
@@ -128,17 +138,17 @@ if (process.argv.length > 2) {
     console.log("Available shortcuts:");
     console.log("");
 
-    Object.entries(shortcuts).forEach(([cmd, config]) => {
-      console.log(`  ${cmd}`);
+    Object.entries(shortcuts).forEach(([cmd, config], index) => {
+      console.log(`  ${index}. ${cmd}`);
       console.log(`    Description: ${config.description}`);
       console.log(`    Files: ${config.files.length} file(s)`);
 
       // Show file paths
-      config.files.forEach((file, index) => {
+      config.files.forEach((file, fileIndex) => {
         const filePath = path.resolve(path.dirname(findShortcutsFile()), file);
         const exists = fs.existsSync(filePath);
         const status = exists ? "✅" : "❌";
-        console.log(`      ${index + 1}. ${status} ${file}`);
+        console.log(`      ${fileIndex + 1}. ${status} ${file}`);
       });
 
       console.log("");
@@ -146,10 +156,24 @@ if (process.argv.length > 2) {
   } else if (command === "--help" || command === "-h") {
     program.help();
   } else if (shortcuts[command]) {
+    // Handle named command
     openInCursor(shortcuts[command].files);
+  } else if (!isNaN(command)) {
+    // Handle numeric index
+    const index = parseInt(command);
+    const shortcut = getShortcutByIndex(shortcuts, index);
+
+    if (shortcut) {
+      console.log(`Opening shortcut ${index}: ${shortcut.key}`);
+      openInCursor(shortcut.config.files);
+    } else {
+      console.error(`Invalid index: ${index}. Use 's list' to see available shortcuts.`);
+      process.exit(1);
+    }
   } else {
     console.error(`Unknown command: ${command}`);
     console.log("Use 's list' to see available commands");
+    console.log("You can also use numeric indices (0, 1, 2, etc.) to open shortcuts by position");
     process.exit(1);
   }
 } else {

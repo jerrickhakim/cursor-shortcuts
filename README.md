@@ -23,13 +23,13 @@ Example output:
 ```
 Available shortcuts:
 
-  playground:save
+  0. playground:save
     Description: Open playground save files in Cursor
     Files: 2 file(s)
       1. ✅ next/app/api/playground/route.ts
       2. ✅ next/app/(scrollable-none)/playground/components/Layout.tsx
 
-  auth:files
+  1. auth:files
     Description: Open authentication related files
     Files: 2 file(s)
       1. ❌ next/app/auth/sign-in.tsx
@@ -63,6 +63,17 @@ s auth:files
 ```
 
 Each command will open the corresponding files in Cursor.
+
+### Numeric Index Commands
+
+You can also open shortcuts using their numeric index (zero-based):
+
+```bash
+s 0  # Opens the first shortcut (playground:save)
+s 1  # Opens the second shortcut (auth:files)
+```
+
+The `s list` command shows the numeric index for each shortcut, making it easy to see which number corresponds to which shortcut.
 
 ## Shortcuts.json Format
 
