@@ -1,6 +1,6 @@
 {
   "name": "cursor-shortcuts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to open files from shortcuts.json in Cursor editor with dynamic commands",
   "main": "index.js",
   "bin": {
