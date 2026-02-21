@@ -124,7 +124,7 @@ program
 Object.entries(shortcuts).forEach(([command, config]) => {
   program
     .command(command)
-    .description(config.description)
+    .description(config.description || "")
     .action(() => {
       openInCursor(config.files);
     });
